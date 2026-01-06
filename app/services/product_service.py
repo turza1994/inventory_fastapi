@@ -32,7 +32,13 @@ class ProductService:
 
     def delete_product(self, db: Session, product_id: int):
         product = self.get_product(db, product_id)
-        return self.repository.delete(db, product_id)
+        
+        # if product.category:
+        #      _ = product.category.name 
+        
+        product_dto = ProductDTO.model_validate(product)
+        self.repository.delete(db, product_id)
+        return product_dto
 
     def search_products(self, db: Session, name: str):
         return self.repository.search_by_name(db, name)
