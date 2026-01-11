@@ -1,2 +1,2 @@
-from .category_entity import Category
-from .product_entity import Product
+from .category_model import Category
+from .product_model import Product

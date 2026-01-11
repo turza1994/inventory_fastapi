@@ -1,7 +1,7 @@
 from typing import List
 from sqlalchemy.orm import Session
 from app.repositories.base_repository import BaseRepository
-from app.models.product_entity import Product
+from app.models.product_model import Product
 from app.schemas import ProductCreate, ProductUpdate
 
 
