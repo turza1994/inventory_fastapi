@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from app.schemas.category_dto import CategoryDTO
+from app.schemas.category_schema import CategoryDTO
 
 
 class ProductBase(BaseModel):

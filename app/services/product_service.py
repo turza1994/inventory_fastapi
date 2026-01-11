@@ -2,7 +2,7 @@ from typing import List
 from sqlalchemy.orm import Session
 from app.repositories.product_repository import ProductRepository
 from app.services.category_service import CategoryService
-from app.schemas.product_dto import ProductCreate, ProductUpdate, ProductDTO
+from app.schemas import ProductCreate, ProductUpdate, ProductDTO
 from app.exceptions.base_exception import ResourceNotFoundException
 
 

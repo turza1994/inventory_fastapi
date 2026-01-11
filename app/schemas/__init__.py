@@ -1,2 +1,2 @@
-from .category_dto import CategoryCreate, CategoryUpdate, CategoryDTO
-from .product_dto import ProductCreate, ProductUpdate, ProductDTO
+from .category_schema import CategoryCreate, CategoryUpdate, CategoryDTO
+from .product_schema import ProductCreate, ProductUpdate, ProductDTO

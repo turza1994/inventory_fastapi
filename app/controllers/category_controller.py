@@ -2,7 +2,7 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.schemas.category_dto import CategoryCreate, CategoryUpdate, CategoryDTO
+from app.schemas import CategoryCreate, CategoryUpdate, CategoryDTO
 from app.services.category_service import CategoryService
 
 router = APIRouter()

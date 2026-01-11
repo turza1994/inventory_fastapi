@@ -2,7 +2,7 @@ from typing import List
 from sqlalchemy.orm import Session
 from app.repositories.base_repository import BaseRepository
 from app.models.product_entity import Product
-from app.schemas.product_dto import ProductCreate, ProductUpdate
+from app.schemas import ProductCreate, ProductUpdate
 
 
 class ProductRepository(BaseRepository[Product, ProductCreate, ProductUpdate]):

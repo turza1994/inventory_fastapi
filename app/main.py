@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.core.config import settings
 from app.core.database import engine, Base
-from app.api.v1.router import api_router
+
 from app.exceptions.handlers import add_exception_handlers
 from app.models import Category, Product  # Ensure models are imported for metadata
 
@@ -15,8 +15,12 @@ app = FastAPI(
 # Global Exception Handlers
 add_exception_handlers(app)
 
+from app.router import router
+
+# ...
+
 # Include Router
-app.include_router(api_router, prefix=settings.API_V1_STR)
+app.include_router(router, prefix=settings.API_V1_STR)
 
 
 @app.get("/")

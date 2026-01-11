@@ -2,7 +2,7 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.schemas.product_dto import ProductCreate, ProductUpdate, ProductDTO
+from app.schemas import ProductCreate, ProductUpdate, ProductDTO
 from app.services.product_service import ProductService
 
 router = APIRouter()
