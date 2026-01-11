@@ -7,41 +7,47 @@ from app.services.product_service import ProductService
 
 router = APIRouter()
 
+
 def get_service():
     return ProductService()
+
 
 @router.post("/", response_model=ProductDTO)
 def create_product(
     product_in: ProductCreate,
     db: Session = Depends(get_db),
-    service: ProductService = Depends(get_service)
+    service: ProductService = Depends(get_service),
 ):
     return service.create_product(db, product_in)
+
 
 @router.get("/{product_id}", response_model=ProductDTO)
 def read_product(
     product_id: int,
     db: Session = Depends(get_db),
-    service: ProductService = Depends(get_service)
+    service: ProductService = Depends(get_service),
 ):
     return service.get_product(db, product_id)
+
 
 @router.put("/{product_id}", response_model=ProductDTO)
 def update_product(
     product_id: int,
     product_in: ProductUpdate,
     db: Session = Depends(get_db),
-    service: ProductService = Depends(get_service)
+    service: ProductService = Depends(get_service),
 ):
     return service.update_product(db, product_id, product_in)
+
 
 @router.delete("/{product_id}", response_model=ProductDTO)
 def delete_product(
     product_id: int,
     db: Session = Depends(get_db),
-    service: ProductService = Depends(get_service)
+    service: ProductService = Depends(get_service),
 ):
     return service.delete_product(db, product_id)
+
 
 @router.get("/", response_model=List[ProductDTO])
 def read_products(
@@ -50,7 +56,7 @@ def read_products(
     search: Optional[str] = None,
     low_stock: bool = False,
     db: Session = Depends(get_db),
-    service: ProductService = Depends(get_service)
+    service: ProductService = Depends(get_service),
 ):
     if search:
         return service.search_products(db, search)

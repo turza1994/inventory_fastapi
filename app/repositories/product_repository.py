@@ -4,6 +4,7 @@ from app.repositories.base_repository import BaseRepository
 from app.models.product_entity import Product
 from app.schemas.product_dto import ProductCreate, ProductUpdate
 
+
 class ProductRepository(BaseRepository[Product, ProductCreate, ProductUpdate]):
     def __init__(self):
         super().__init__(Product)

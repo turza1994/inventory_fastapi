@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Inventory Management System"
     API_V1_STR: str = "/api/v1"
-    
+
     # Database
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
@@ -18,5 +18,6 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+
 
 settings = Settings()

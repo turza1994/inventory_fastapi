@@ -7,6 +7,7 @@ ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
 UpdateSchemaType = TypeVar("UpdateSchemaType", bound=BaseModel)
 
+
 class BaseRepository(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     def __init__(self, model: Type[ModelType]):
         self.model = model
@@ -25,7 +26,9 @@ class BaseRepository(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         db.refresh(db_obj)
         return db_obj
 
-    def update(self, db: Session, db_obj: ModelType, obj_in: UpdateSchemaType) -> ModelType:
+    def update(
+        self, db: Session, db_obj: ModelType, obj_in: UpdateSchemaType
+    ) -> ModelType:
         obj_data = obj_in.model_dump(exclude_unset=True)
         for field, value in obj_data.items():
             setattr(db_obj, field, value)

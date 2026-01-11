@@ -1,7 +1,11 @@
 from sqlalchemy.orm import Session
 from app.repositories.category_repository import CategoryRepository
 from app.schemas.category_dto import CategoryCreate, CategoryUpdate, CategoryDTO
-from app.exceptions.base_exception import ResourceAlreadyExistsException, ResourceNotFoundException
+from app.exceptions.base_exception import (
+    ResourceAlreadyExistsException,
+    ResourceNotFoundException,
+)
+
 
 class CategoryService:
     def __init__(self):
