@@ -13,7 +13,7 @@ def get_service():
     return CategoryService()
 
 
-@router.post("/", response_model=CategoryDTO)
+@router.post("/categories", response_model=CategoryDTO)
 def create_category(
     category_in: CategoryCreate,
     db: Session = Depends(get_db),
@@ -22,7 +22,7 @@ def create_category(
     return service.create_category(db, category_in)
 
 
-@router.get("/{category_id}", response_model=CategoryDTO)
+@router.get("/categories/{category_id}", response_model=CategoryDTO)
 def read_category(
     category_id: int,
     db: Session = Depends(get_db),
@@ -31,7 +31,7 @@ def read_category(
     return service.get_category(db, category_id)
 
 
-@router.get("/", response_model=List[CategoryDTO])
+@router.get("/categories", response_model=List[CategoryDTO])
 def read_categories(
     skip: int = 0,
     limit: int = 100,

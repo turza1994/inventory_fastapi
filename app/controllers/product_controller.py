@@ -12,7 +12,7 @@ def get_service():
     return ProductService()
 
 
-@router.post("/", response_model=ProductDTO)
+@router.post("/products", response_model=ProductDTO)
 def create_product(
     product_in: ProductCreate,
     db: Session = Depends(get_db),
@@ -21,7 +21,7 @@ def create_product(
     return service.create_product(db, product_in)
 
 
-@router.get("/{product_id}", response_model=ProductDTO)
+@router.get("/products/{product_id}", response_model=ProductDTO)
 def read_product(
     product_id: int,
     db: Session = Depends(get_db),
@@ -30,7 +30,7 @@ def read_product(
     return service.get_product(db, product_id)
 
 
-@router.put("/{product_id}", response_model=ProductDTO)
+@router.put("/products/{product_id}", response_model=ProductDTO)
 def update_product(
     product_id: int,
     product_in: ProductUpdate,
@@ -40,7 +40,7 @@ def update_product(
     return service.update_product(db, product_id, product_in)
 
 
-@router.delete("/{product_id}", response_model=ProductDTO)
+@router.delete("/products/{product_id}", response_model=ProductDTO)
 def delete_product(
     product_id: int,
     db: Session = Depends(get_db),
@@ -49,7 +49,7 @@ def delete_product(
     return service.delete_product(db, product_id)
 
 
-@router.get("/", response_model=List[ProductDTO])
+@router.get("/products", response_model=List[ProductDTO])
 def read_products(
     skip: int = 0,
     limit: int = 100,
